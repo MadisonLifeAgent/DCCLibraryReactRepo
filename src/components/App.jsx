@@ -15,10 +15,41 @@ class App extends Component {
         ];
         this.state = {
             // index number for book in books array we are viewing
-            bookNumber: 1
+            bookNumber: 0
         };
     }
 
+    // arrow function to go to next book - use arrow functions for all class components
+    goToNextBook = () => {
+        let tempBookNumber = this.state.bookNumber;
+        tempBookNumber++;
+
+        // reset tempbook number so it does not go over length of objects array
+        if(tempBookNumber  === this.books.length){
+            tempBookNumber = 0;
+        }
+
+        // updates bookNumber and re-renders return below
+        this.setState({
+            bookNumber: tempBookNumber
+        });
+    }
+
+    // arrow function to go to previous book - use arrow functions for all class components
+    goToPreviousBook = () => {
+        let tempBookNumber = this.state.bookNumber;
+        tempBookNumber--;
+        
+        // reset tempbook number so it does not go over length of objects array
+        if(tempBookNumber < 0){
+            tempBookNumber = this.books.length -1;
+        }
+
+        // updates bookNumber and re-renders return below
+        this.setState({
+            bookNumber: tempBookNumber
+        });
+    }
     // renders via index.js to index.html
     render() {
         return (
@@ -28,6 +59,7 @@ class App extends Component {
                 <div className="row">
                     <div className="col-md-4">
                         {/* Button here to move to previous book */}
+                        <button onClick={this.goToPreviousBook}>Previous Book</button>
                     </div>
                     <div className="col-md-4">
                         {/* Display book with cover here */}
@@ -36,6 +68,7 @@ class App extends Component {
                     </div>
                     <div className="col-md-4">
                         {/* Button here to move to next book */}
+                        <button onClick={this.goToNextBook}>Next Book</button>
                     </div>
                 </div>
 
