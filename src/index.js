@@ -3,9 +3,9 @@
 // imports React library
 import React from 'react';
 import reactDom from 'react-dom';
+import App from './components/App';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const jsxElement = <h1>Our React App</h1>;
-
-// render jsxElement by putting it into html tag with id 'root' in index.html
-reactDom.render(jsxElement, document.getElementById('root'));
+// render App.jsx by putting it into html tag with id 'root' in index.html
+reactDom.render(<App />, document.getElementById('root'));
 
