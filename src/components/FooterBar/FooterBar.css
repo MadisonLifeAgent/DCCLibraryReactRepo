@@ -1,0 +1,10 @@
+.footerbar {
+    background-color: black;
+    width: 100%;
+}
+
+p {
+    padding: 5%;
+    color: white;
+    font-weight: bold;
+}

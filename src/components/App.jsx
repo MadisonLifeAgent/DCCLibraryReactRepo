@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TitleBar from './TitleBar/TitleBar';
 import BookViewer from './BookViewer/BookViewer';
+import FooterBar from './FooterBar/FooterBar';
 
 // passed to index.js, which is then passed to index.html
 class App extends Component {
@@ -57,6 +58,7 @@ class App extends Component {
             <div className="container-fluid">
                 <TitleBar />
                 <BookViewer book={this.books[this.state.bookNumber]} nextBook={this.goToNextBook} previousBook={this.goToPreviousBook} />
+                <FooterBar />
             </div>
         )
     }
