@@ -4,6 +4,7 @@ import './App.css';
 import TitleBar from './TitleBar/TitleBar';
 import BookViewer from './BookViewer/BookViewer';
 import FooterBar from './FooterBar/FooterBar';
+import CreateBook from './CreateBook/CreateBook';
 
 // passed to index.js, which is then passed to index.html
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
         ];
         this.state = {
             // index number for book in books array we are viewing
-            bookNumber: 0
+            bookNumber: 0,
         };
     }
 
@@ -58,6 +59,7 @@ class App extends Component {
             <div className="container-fluid">
                 <TitleBar />
                 <BookViewer book={this.books[this.state.bookNumber]} nextBook={this.goToNextBook} previousBook={this.goToPreviousBook} />
+                <CreateBook />
                 <FooterBar />
             </div>
         )
