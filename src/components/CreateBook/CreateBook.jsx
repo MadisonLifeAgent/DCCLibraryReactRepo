@@ -7,37 +7,33 @@ class CreateBook extends React.Component {
         super(props);
 
         this.state = {
-            book_title: '',
-            author: '',
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+            title: '',
+            author: ''
+        }
     }
 
-    handleChange(event) {
-        this.setState({book_title: event.target.book_title});
-        this.setState({author: event.target.author})
+    // use arrow function to avoid binding issues
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     }
 
-    handleSubmit(event) {
-        alert('A book was added:  ' + this.state.book_title);
+    // use arrow function to avoid binding issues
+    handleSubmit = (event) => {
         event.preventDefault();
+        //passes in state to App.jsx
+        this.props.createNewBook(this.state)
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>
-                    Book Title: 
-                    <input type="text" value={this.state.book_title} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Author: 
-                    <input type="text" value={this.state.author} onChange={this.handleChange} />
-                </label>
-
-                <input type="submit" value="Submit" />
+                <label>Book Title:</label>
+                    <input name="title" type="text" value={this.state.title} onChange={this.handleChange} />
+                <label>Author:</label>
+                    <input name="author" type="text" value={this.state.author} onChange={this.handleChange} />
+                <button type="submit" value="Submit">Create Book</button>
             </form>
         );
     }

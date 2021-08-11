@@ -53,13 +53,27 @@ class App extends Component {
             bookNumber: tempBookNumber
         });
     }
+
+    // function takes in a new book from Createbook
+    createBook = (newBook) => {
+        console.log('From the createBook on App component', newBook);
+        this.books.push(newBook);
+        this.setState({
+            bookNumber: this.books.length - 1
+        })
+    }
+
     // renders via index.js to index.html
     render() {
         return (
             <div className="container-fluid">
                 <TitleBar />
+
                 <BookViewer book={this.books[this.state.bookNumber]} nextBook={this.goToNextBook} previousBook={this.goToPreviousBook} />
-                <CreateBook />
+                
+
+                <CreateBook createNewBook={this.createBook} />
+                
                 <FooterBar />
             </div>
         )

@@ -3,7 +3,7 @@ import './Book.css';
 
 const Book = (props) => {
     return (
-        <div class="book">
+        <div className="book">
             <div className="cover">
                 <h1 className="title">{props.book.title}</h1>
                 <h4 className="author">{props.book.author}</h4>
